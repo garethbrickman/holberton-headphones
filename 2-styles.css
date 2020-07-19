@@ -10,7 +10,9 @@
     --font-size-small: 12px;
     --font-size-btn: 14px;
     --font-size-medium: 16px;
+    --font-size-large: 18px;
     --font-size-xl: 32px;
+    --font-size-xxl: 46px;
     --color-primary: #FF6565;
     --font-family-body: 'Source Sans Pro', 'Lato', sans-serif;
   }
