@@ -5,52 +5,380 @@
 
 /* Variables
    ============================= */
-
+  
    :root {
-    --links-hover-color: #FF6565;   
-    --button-opacity: 0.9;
-    --max-content-width: 1000px;
-   }
+    --font-size-small: 12px;
+    --font-size-btn: 14px;
+    --font-size-medium: 16px;
+    --font-size-xl: 32px;
+    --color-primary: #FF6565;
+    --font-family-body: 'Source Sans Pro', 'Lato', sans-serif;
+  }
 
 /* Base
    ============================= */
-  
-  html {
-      height: 100%;
-      scroll-behavior: smooth;
-      position: relative;
-      font-family: 'Source Sans Pro', sans-serif;
+   body {
+    width: 100vw;
+    height: 100vh;
+    /* overflow: hidden; */
+    overflow-x: hidden;
   }
-
-  @media screen and (max-width: 480px) {
-    html {
-      font-size: 57%;
-    }
-  }
-
-  @media screen and (min-width: 481px) and (max-width: 767px) {
-    html {
-      font-size: 60%;
-    }
-  }
-
-  /* Navbar
-      ============================= */
   
-      .nav {
-        color: white;
-      }
-
-   /* Hero section 1
-      ============================= */
-  
-  .section-hero {
-    background-image: url(images/headphones_hero_1.jpg);
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
+  .container {
+    max-width: 1000px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.1s ease;
+  }
+  
+  a:hover,
+  a:active {
+    color: var(--color-primary);
+  }
+  
+  .btn {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-btn);
+    background: var(--color-primary);
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 24px;
+    margin: 1rem auto;
+    cursor: pointer;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+  
+  .btn:hover,
+  .btn:active {
+    opacity: 0.9;
+  }
+  
+  /* -------------- HEADER -------------- */
+  
+  header {
     width: 100%;
+    background: transparent;
+    position: relative;
+    color: white;
+    background-image: url("images/headphones_hero_1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  header .container {
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  header .container nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    position: relative;
+  }
+  
+  #menu-toggle {
+    display: none;
+    position: absolute;
+  }
+  
+  #menu-btn {
+    display: none;
+    position: absolute;
+  }
+  
+  .logo {
+    width: 160px;
+    height: auto;
+  }
+  
+  .header-nav {
+    display: inline-flex;
+    margin: auto 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: var(--font-size-small);
+    text-transform: lowercase;
+    font-weight: 700;
+    font-family: var(--font-family-body);
+  }
+  
+  .header-nav li {
+    margin: auto 1.25rem;
+  }
+  
+  .hero-content {
+    width: 75%;
+    text-align: center;
+    font-family: var(--font-family-body);
+    margin: 20rem auto 0 auto;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-xl);
+    position: relative;
+    font-weight: 700;
+  }
+  
+  .hero-title::after {
+    content: "Lorem ipsum dolor set amet lorem ipsum";
+    display: block;
+    font-size: var(--font-size-medium);
+    position: relative;
+    margin: 0.25rem 0;
+  }
+  
+  .hero-content p {
+    margin: 2rem 0;
+    line-height: 1.5;
+    font-size: var(--font-size-medium);
+    /* padding: 0 4rem; */
+  }
+  
+  @media (max-width: 1200px) {
+    header {
+      background-position: 42% 50%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header {
+      background-position: 44% 50%;
+      /* transition: background-position 0.2s ease; */
+    }
+  
+    header .container nav {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .logo {
+      width: 50%;
+      height: auto;
+    }
+  
+    .header-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      margin: 1rem auto;
+      text-align: center;
+      font-weight: bold;
+      font-size: var(--font-size-btn);
+    }
+  
+    .header-nav li {
+      width: 100%;
+      margin: 0.5rem auto;
+    }
+  
+    #menu-btn {
+      background: white;
+      height: 2px;
+      width: 13px;
+      position: absolute;
+      left: 1rem;
+      top: 18px;
+      display: block;
+    }
+  
+    #menu-btn::before {
+      content: "";
+      background: white;
+      height: 2px;
+      width: 20px;
+      position: relative;
+      top: -0.4rem;
+      display: block;
+      transition: all 0.2s ease;
+    }
+  
+    #menu-btn::after {
+      content: "";
+      background: white;
+      height: 2px;
+      width: 18px;
+      position: relative;
+      top: 0.3rem;
+      display: block;
+      transition: all 0.2s ease;
+    }
+  
+    #menu-toggle:checked ~ .header-nav {
+      display: inline-flex;
+    }
+  
+    #menu-toggle:checked ~ #menu-btn {
+      background: transparent;
+    }
+  
+    #menu-toggle:checked ~ #menu-btn::before {
+      transform: rotate(45deg);
+      top: 3px;
+      margin: auto;
+    }
+  
+    #menu-toggle:checked ~ #menu-btn::after {
+      width: 20px;
+      transform: rotate(-45deg);
+      top: 1px;
+      margin: auto;
+    }
+  
+    .hero-content {
+      margin: 14rem auto 0 auto;
+      width: 95%;
+    }
+  }
+  
+  /* -------------- MAIN -------------- */
+  
+  main {
+    width: 100%;
+    background: transparent;
+    position: relative;
+  }
+  
+  .section-title {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-xl);
+    margin: auto;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+  }
+  
+  main p {
+    margin: 2rem auto;
+    line-height: 1.5;
+    font-size: var(--font-size-medium);
+    font-family: var(--font-family-body);
+    text-align: center;
+    /* padding: 1rem 13%; */
+    width: 65%;
+  }
+  
+  main .container {
+    padding: 4rem;
+    flex-wrap: wrap;
+  }
+  
+  main .grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 100%;
+    text-align: center;
+    font-family: var(--font-family-body);
+    margin: 2rem 0;
+  }
+  
+  main .grid .item {
+    margin: 0.5rem;
+  }
+  
+  main .grid .item h2 {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-large);
+  }
+  
+  main .grid .item p {
+    width: 100%;
+    margin: 0;
+    font-size: var(--font-size-btn);
+    padding: 0;
+  }
+  
+  @media (max-width: 767px) {
+    main .grid {
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 50% 50%;
+    }
+  
+    main .grid .item {
+      margin: 1rem;
+    }
+  
+    main p {
+      width: 95%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    main .container {
+      padding: 4rem 2.5rem;
+    }
+  
+    main .grid {
+      grid-template-columns: 100%;
+      grid-template-rows: 25% 25% 25% 25%;
+    }
+  
+    main .grid .item p {
+      width: 70%;
+      margin: auto;
+    }
+  
+    main p {
+      width: 100%;
+    }
+  }
+  
+  #results {
+    background-image: url("images/headphones_hero_2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+  }
+  
+  @media (max-width: 1200px) {
+    #results {
+      background-position: 45%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #results {
+      background-position: 50%;
+    }
+  }
+  
+  #results .container {
+    padding: 6rem 4rem;
+  }
+  
+  #results .grid .item {
+    background-image: url("images/pentagone.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 10rem;
+    padding: 0;
+    position: relative;
+  }
+  
+  #results .grid .item h2 {
+    font-size: var(--font-size-xxl);
+    position: relative;
+    top: 4%;
+  }
+  
+  #results .grid .item p {
+    position: relative;
+    top: -15%;
   }
